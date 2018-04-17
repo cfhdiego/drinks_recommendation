@@ -29,12 +29,37 @@
         </div>
 
         <div class="advanced-form" style="display:none;">
-          User inputs to search a collection of drinks based on given recommendations.
+          
+          <div class="advanced-form__input" style="float: left;">
+            <%= label_tag(:name, 'Name') %>
+            <%= text_field_tag 'drink[:adv_name]',nil, class: 'form-control form-control-lg', placeholder: "Try a Martini.."%>
+            <%= label_tag(:base_ingredient, 'Base Ingredient') %>
+            <%= text_field_tag 'drink[:base_ingredient]',nil, class: 'form-control form-control-lg', placeholder: "Try Lemon.."%>
+            <%= label_tag(:drinkware, 'Drinkware') %>
+            <%= text_field_tag 'drink[:drinkware]',nil, class: 'form-control form-control-lg', placeholder: "Try Glass"%>
+            <%= label_tag(:alcohol_level, 'Alcohol Level') %>
+            <%= number_field_tag 'drink[:alcohol_level]', nil, class: 'form-control form-control-lg', placeholder: "0"%>
+            <%= label_tag(:temperature, 'Temperature') %>
+            <%= select_tag('drink[:temperature]', options_for_select([["Hot", 0],["Warm", 1],["Ambient", 2], ["Cold", 3], ["Extra Cold", 4]]), class: 'form-control form-control-lg')%>
+          </div>
+          <div class="advanced-form__input" style="float: right;">
+           <%= label_tag(:description, 'Description') %>
+            <%= text_field_tag 'drink[:description]',nil, class: 'form-control form-control-lg', placeholder: "Try any word.."%>
+            <%= label_tag(:origin, 'Origin') %>
+            <%= text_field_tag 'drink[:origin]',nil, class: 'form-control form-control-lg', placeholder: "Try Brazil"%>
+            <%= label_tag(:ibu, 'IBU') %> 
+            <%= number_field_tag 'drink[:ibu]', nil, class: 'form-control form-control-lg', placeholder: "0"%>
+            <%= label_tag(:rating_avg, 'Rating Average') %>
+            <%= number_field_tag 'drink[:rating_avg]', 0.00, class: 'form-control form-control-lg', step: 0.01, placeholder: "0,00"%>
+          </div>
+          <div class="advanced-form__btn" style="text-align: center;">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
+          </div>
         </div>
+        
       <% end %>
-
+    </div>
   </div>
-
   <div id="drinks-list">
     <%= render 'drinks_found' %>
   </div>

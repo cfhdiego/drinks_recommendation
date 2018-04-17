@@ -19,10 +19,12 @@
 function ready(event) {
   $('input[type=radio][name=searchRadio]').change(function() {
     if (this.value === 'simple') {
+      $(".form-control").val('');
       $('.simple-form').show();
       $('.advanced-form').hide();
     }
     else if (this.value === 'advanced') {
+      $(".form-control").val('');
       $('.simple-form').hide();
       $('.advanced-form').show();
     }
