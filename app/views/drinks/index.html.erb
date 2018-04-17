@@ -16,31 +16,27 @@
       </div>
     </div>
 
-    <%= form_tag do %>
-      <div class="simple-form">
-        <div class="simple-form__input">
-          <input id="drink_name" class="form-control form-control-lg" type="text" placeholder="Try a Martini..">
-        </div>
-        <div class="simple-form__btn">
-          <button type="button" class="btn btn-outline-primary btn-lg" onclick="find_drinks();">Search</button>
-        </div>
-      </div>
 
-      <div class="advanced-form" style="display:none;">
-        User inputs to search a collection of drinks based on given recommendations.
-      </div>
-    <% end %>
+
+      <%= form_tag(drinks_path,id: 'search-form', method: 'get',remote: true) do%>
+        <div class="simple-form">
+          <div class="simple-form__input">
+            <%= text_field_tag 'drink[:name]',nil, class: 'form-control form-control-lg', placeholder: "Try a Martini.."%>
+          </div>
+          <div class="simple-form__btn">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
+          </div>
+        </div>
+
+        <div class="advanced-form" style="display:none;">
+          User inputs to search a collection of drinks based on given recommendations.
+        </div>
+      <% end %>
+
   </div>
 
-  <div class="drinks-list">
-    <% @drinks.each do |drink| %>
-      <div class="card drink-card">
-        <%= image_tag drink.image_url, class: 'drink-card__img' %>
-        <div class="drink-card__body">
-          <h2><%= drink.name %></h2>
-          <p><%= drink.description %></p>
-        </div>
-      </div>
-    <% end %>
+  <div id="drinks-list">
+    <%= render 'drinks_found' %>
   </div>
+  
 </div>

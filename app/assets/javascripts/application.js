@@ -29,9 +29,4 @@ function ready(event) {
   });
 }
 
-function find_drinks(){
-  name = document.getElementById("drink_name");
-  $.ajax(url: "/drinks/index/?name="+name).done (html) -> $("#drinks-list") html
-
-}
 $(document).on('turbolinks:load', ready);

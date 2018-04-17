@@ -1,16 +1,29 @@
 class DrinkRecommendation
 	attr_reader :attributes
-	RECOMMENDATION_HANDLER = {
-		name: "name like ",
-		descripiton: "descripiton like ",
-		alcohol_level: "alcohol_level = "
-		distilled: "distilled is "
-		temperature: "temperature = "
-		base_ingredient: "base_ingredient like "
-		origin: "origin like "
-		drinkware: "drinkware like "
-		ibu: "ibu BETWEEN "
-		rating_avg: "rating_avg = "
+	KEY_HANDLER = {
+		":name" => "name ILIKE ",
+		":descripiton" => "descripiton ILIKE ",
+		":alcohol_level" => "alcohol_level = ",
+		":distilled" => "distilled is ",
+		":temperature" => "temperature = ",
+		":base_ingredient" => "base_ingredient like ",
+		":origin" => "origin like ",
+		":drinkware" => "drinkware like ",
+		":ibu" => "ibu BETWEEN ",
+		":rating_avg" => "rating_avg = "
+	}
+
+	VALUE_HANDLER = {
+		":name" => "name ILIKE ",
+		":descripiton" => "descripiton ILIKE ",
+		":alcohol_level" => "alcohol_level = ",
+		":distilled" => "distilled is ",
+		":temperature" => "temperature = ",
+		":base_ingredient" => "base_ingredient like ",
+		":origin" => "origin like ",
+		":drinkware" => "drinkware like ",
+		":ibu" => "ibu BETWEEN ",
+		":rating_avg" => "rating_avg = "
 	}
 
 	def initialize(att)
@@ -19,12 +32,11 @@ class DrinkRecommendation
 
 	def drinks_found
 		conditions = []
-		
 		@attributes.each do |key, value|
-			conditions << RECOMMENDATION_HANDLER[key] + value.to_s
+			conditions << RECOMMENDATION_HANDLER[key] + "'%#{value.to_s}%'"
 		end
 
-		Drink.where(conditions.join(" and "))
+		Drink.where(conditions.join(" and ")).order('name')
 	end
 
 end

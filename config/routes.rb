@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'drinks#index'
 
+  resources :drinks
+
   resources :home, only: %i[index]
 end

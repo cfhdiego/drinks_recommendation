@@ -16,6 +16,9 @@ gem 'webpacker'
 # gem 'therubyracer', platforms: :ruby
 gem 'react-rails'
 
+gem "jquery-rails"
+gem "decent_exposure"
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
