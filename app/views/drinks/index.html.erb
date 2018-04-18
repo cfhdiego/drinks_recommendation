@@ -40,7 +40,7 @@
             <%= label_tag(:alcohol_level, 'Alcohol Level') %>
             <%= number_field_tag 'drink[:alcohol_level]', nil, class: 'form-control form-control-lg', placeholder: "0"%>
             <%= label_tag(:temperature, 'Temperature') %>
-            <%= select_tag('drink[:temperature]', options_for_select([["Hot", 0],["Warm", 1],["Ambient", 2], ["Cold", 3], ["Extra Cold", 4]]), class: 'form-control form-control-lg')%>
+            <%= select_tag('drink[:temperature]', options_for_select([["", ""],["Hot", 0],["Warm", 1],["Ambient", 2], ["Cold", 3], ["Extra Cold", 4]]), class: 'form-control form-control-lg')%>
           </div>
           <div class="advanced-form__input" style="float: right;">
            <%= label_tag(:description, 'Description') %>
@@ -50,7 +50,7 @@
             <%= label_tag(:ibu, 'IBU') %> 
             <%= number_field_tag 'drink[:ibu]', nil, class: 'form-control form-control-lg', placeholder: "0"%>
             <%= label_tag(:rating_avg, 'Rating Average') %>
-            <%= number_field_tag 'drink[:rating_avg]', 0.00, class: 'form-control form-control-lg', step: 0.01, placeholder: "0,00"%>
+            <%= number_field_tag 'drink[:rating_avg]', nil, class: 'form-control form-control-lg', step: 0.01, placeholder: "0,00"%>
           </div>
           <div class="advanced-form__btn" style="text-align: center;">
             <button type="submit" class="btn btn-outline-primary btn-lg">Search</button>
